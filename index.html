@@ -13,7 +13,18 @@ if (!('webkitSpeechRecognition' in window)) {
   var recognition = new webkitSpeechRecognition();
   recognition.continuous = false;
 
-  recognition.onstart = function() {}
+  recognition.onstart = function() {
+      recognition.result();
+
+  }
+  
+  function startButton(event) {
+
+  final_transcript = '';
+  recognition.lang = 'en-US';    
+  recognition.start();
+}
+
   recognition.onresult = function(event) {
   		for (var i = event.resultIndex; i < event.results.length; ++i) {
       if (event.results[i].isFinal) {
@@ -92,12 +103,7 @@ $(".recordbutton").click(function() {
 });
 
 
-  function startButton(event) {
 
-    final_transcript = '';
-	recognition.lang = 'en-US';    
-	recognition.start();
-}
 
 }
 
