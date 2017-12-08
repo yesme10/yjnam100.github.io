@@ -20,6 +20,7 @@ if (!('webkitSpeechRecognition' in window)) {
         final_transcript += event.results[i][0].transcript;
       } 
   }
+}
   recognition.onerror = function(event) {
 
   }
@@ -95,10 +96,9 @@ $(".recordbutton").click(function() {
 	recognition.start();
 }
 
-
-
 }
-};
+
+});
   </script>
 
 
