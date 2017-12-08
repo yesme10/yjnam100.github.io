@@ -38,6 +38,9 @@ $(".recordbutton").click(function() {
 
 	var re = /^(click|scroll|enter)\s(.*)/i;
     var result = re.exec(final_transcript);
+    var found = final_transcript.match(re);
+
+    console.log(found);
 
  	if(result) {
 	  var verb = result[1];
