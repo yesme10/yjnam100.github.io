@@ -23,6 +23,49 @@ if (!('webkitSpeechRecognition' in window)) {
     
 $(".recordbutton").click(function() {
 	startButton();
+	var potentialcommand = $("#command").val();
+
+	console.log(potentialcommand);
+
+	var re = /^(click|scroll|enter)\s(.*)/i;
+    var result = re.exec(potentialcommand);
+
+ 	if(result) {
+	  var verb = result[1];
+      var arg = result[2]
+
+      console.log("verb: " + verb + ", args: " + arg)
+
+      switch(verb) {
+      	case "click":
+      	  // what do we do if click?
+      	  console.log("handling click")
+
+      	  //console.log($("*:contains('" + arg + "')"));
+
+      	  var stringpieces = arg.split(/\s/);
+
+      	  $("a,input,button").each(function() {
+      	    if($(this)[0].tagName == "INPUT") {
+      	    	// look for the text in INPUT fields
+      	    } else if() {
+
+      	    }
+      	  })
+
+      	  break;
+      	case "scroll":
+      	  // what do we do on scroll?
+      	  console.log("handling scroll`")
+      	  break;
+      	case "enter":
+      	  // what do we do on enter?
+      	  console.log("handling enter")
+      	  break;
+      	default:
+      	  console.log("sorry, that is not a recognized command")
+      }
+  }
 });
 
 
@@ -44,9 +87,9 @@ $(".recordbutton").click(function() {
         interim_transcript += event.results[i][0].transcript;
       }
     }
-    final_transcript = capitalize(final_transcript);
+    /*final_transcript = capitalize(final_transcript);
     final_span.innerHTML = linebreak(final_transcript);
-    interim_span.innerHTML = linebreak(interim_transcript);
+    interim_span.innerHTML = linebreak(interim_transcript);*/
   };
 }
 });
@@ -65,7 +108,7 @@ $(".recordbutton").click(function() {
 </p>
 
 <p>
-  <input type="text" value="">
+  <input type="text" id="command" value="">
 </p>
 
 </body>
