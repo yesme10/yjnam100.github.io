@@ -14,7 +14,7 @@ if (!('webkitSpeechRecognition' in window)) {
   recognition.continuous = true;
   recognition.interimResults = true;
 
-  recognition.onstart = function() { ... }
+  recognition.onstart = function(event) { ... }
   recognition.onresult = function(event) { ... }
   recognition.onerror = function(event) { ... }
   recognition.onend = function() { ... }
