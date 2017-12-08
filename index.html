@@ -41,15 +41,15 @@ $(".recordbutton").click(function() {
 
  	if(result) {
 	  var verb = result[1];
-      var arg = result[2]
+      var arg = result[2];
 
-      console.log("verb: " + verb + ", args: " + arg)
+      console.log("verb: " + verb + ", args: " + arg);
 
       switch(verb) {
       	case "click":
 
       
-      	  console.log("handling click")
+      	  console.log("handling click");
 
       	  //console.log($("*:contains('" + arg + "')"));
 
@@ -76,14 +76,14 @@ $(".recordbutton").click(function() {
       	  break;
       	case "scroll":
       	  // what do we do on scroll?
-      	  console.log("handling scroll`")
+      	  console.log("handling scroll`");
       	  break;
       	case "enter":
       	  // what do we do on enter?
-      	  console.log("handling enter")
+      	  console.log("handling enter");
       	  break;
       	default:
-      	  console.log("sorry, that is not a recognized command")
+      	  console.log("sorry, that is not a recognized command");
       }
   }
 });
