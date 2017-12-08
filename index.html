@@ -3,8 +3,52 @@
   <head>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script>
+
   $(document).ready(function() {
-  	$("body").append("<input type='button' value='button'>");
+    allelements = $("*");
+
+if (!('webkitSpeechRecognition' in window)) {
+  upgrade();
+} else {
+  var recognition = new webkitSpeechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+
+  recognition.onstart = function() { ... }
+  recognition.onresult = function(event) { ... }
+  recognition.onerror = function(event) { ... }
+  recognition.onend = function() { ... }
+  ...
+
+    
+$(".recordbutton").click(function() {
+	startButton();
+});
+
+
+  function startButton(event) {
+
+    final_transcript = '';
+    recognition.lang = select_dialect.value;
+    recognition.start();
+}
+
+
+    recognition.onresult = function(event) {
+    var interim_transcript = '';
+
+    for (var i = event.resultIndex; i < event.results.length; ++i) {
+      if (event.results[i].isFinal) {
+        final_transcript += event.results[i][0].transcript;
+      } else {
+        interim_transcript += event.results[i][0].transcript;
+      }
+    }
+    final_transcript = capitalize(final_transcript);
+    final_span.innerHTML = linebreak(final_transcript);
+    interim_span.innerHTML = linebreak(interim_transcript);
+  };
+}
   </script>
 
 
@@ -12,7 +56,7 @@
 <body>
 
 <p>
-<input id="thebutton" type="button" value="I'm a button">
+<input id="thebutton" type="button" class ="recordbutton" value="Recording Start">
 </p>
 
 <p>
