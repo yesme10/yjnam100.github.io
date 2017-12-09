@@ -82,8 +82,8 @@ if (!('webkitSpeechRecognition' in window)) {
           break;
         case "enter":
 
-          var text=$("#command").val();
-          text=arg;
+          var text= $("#command").val();
+          text=text+arg;
           console.log(text);
 
 
