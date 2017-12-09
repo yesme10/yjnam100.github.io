@@ -24,6 +24,63 @@ if (!('webkitSpeechRecognition' in window)) {
         final_transcript += event.results[i][0].transcript;
       } 
   }
+  var potentialcommand = $("#command").val();
+
+
+  var re = /^(click|scroll|enter)\s(.*)/i;
+    var result = re.exec(final_transcript);
+    var found = final_transcript.match(re);
+
+    console.log(final_transcript);
+    console.log(result);
+
+  if(result) {
+    var verb = result[1];
+      var arg = result[2];
+
+      console.log("verb: " + verb + ", args: " + arg);
+
+      switch(verb) {
+        case "click":
+
+      
+          console.log("handling click");
+
+          //console.log($("*:contains('" + arg + "')"));
+
+          var stringpieces = arg.split(/\s/);
+
+          $("a,input,button").each(function() {
+            if($(this)[0].tagName == "INPUT") {
+              var content = $(this).val();
+
+              if (content = arg) {
+                $(this).click();
+              }
+              // look for the text in INPUT fields
+
+            } else if(($(this)[0].tagName == "A")) { 
+              $(this).click();
+
+              if (content=arg) {
+                $(this).click();
+              }
+            }
+          })
+
+          break;
+        case "scroll":
+          // what do we do on scroll?
+          console.log("handling scroll`");
+          break;
+        case "enter":
+          // what do we do on enter?
+          console.log("handling enter");
+          break;
+        default:
+          console.log("sorry, that is not a recognized command");
+      }
+  }
 }
   recognition.onerror = function(event) {
 
@@ -36,63 +93,7 @@ if (!('webkitSpeechRecognition' in window)) {
     
 $(".recordbutton").click(function() {
 	startButton();
-	var potentialcommand = $("#command").val();
 
-
-	var re = /^(click|scroll|enter)\s(.*)/i;
-    var result = re.exec(final_transcript);
-    var found = final_transcript.match(re);
-
-    console.log(final_transcript);
-    console.log(result);
-
- 	if(result) {
-	  var verb = result[1];
-      var arg = result[2];
-
-      console.log("verb: " + verb + ", args: " + arg);
-
-      switch(verb) {
-      	case "click":
-
-      
-      	  console.log("handling click");
-
-      	  //console.log($("*:contains('" + arg + "')"));
-
-      	  var stringpieces = arg.split(/\s/);
-
-      	  $("a,input,button").each(function() {
-      	    if($(this)[0].tagName == "INPUT") {
-      	    	var content = $(this).val();
-
-      	    	if (content = arg) {
-      	    		$(this).click();
-      	    	}
-      	    	// look for the text in INPUT fields
-
-      	    } else if(($(this)[0].tagName == "A")) { 
-      	    	$(this).click();
-
-      	    	if (content=arg) {
-      	    		$(this).click();
-      	    	}
-      	    }
-      	  })
-
-      	  break;
-      	case "scroll":
-      	  // what do we do on scroll?
-      	  console.log("handling scroll`");
-      	  break;
-      	case "enter":
-      	  // what do we do on enter?
-      	  console.log("handling enter");
-      	  break;
-      	default:
-      	  console.log("sorry, that is not a recognized command");
-      }
-  }
 });
 
  function startButton(event) {
