@@ -83,9 +83,8 @@ if (!('webkitSpeechRecognition' in window)) {
 
         case "enter":
   
-
-          var newval= $(arg).val();
-          $("#command")[0].val() + newval; 
+        if ($(this)[0].hasClass('field')){
+          $(this).val()=($(this).val())+newval; 
 
 
           console.log(newval);
