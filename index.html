@@ -32,7 +32,6 @@ if (!('webkitSpeechRecognition' in window)) {
     var found = final_transcript.match(re);
 
     console.log(final_transcript);
-    console.log(result);
 
   if(result) {
     var verb = result[1];
@@ -54,15 +53,16 @@ if (!('webkitSpeechRecognition' in window)) {
             if($(this)[0].tagName == "INPUT") {
               var content = $(this).val();
 
-              if (content = arg) {
-                $(this).click();
+              if (content == arg) {
+                $(this)[0].click();
+
               }
               // look for the text in INPUT fields
 
             } else if(($(this)[0].tagName == "A")) { 
-              $(this).click();
+              $(this)[0].click();
 
-              if (content=arg) {
+              if (content==arg) {
                 $(this).click();
               }
             }
