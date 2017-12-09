@@ -72,8 +72,14 @@ if (!('webkitSpeechRecognition' in window)) {
         case "scroll":
           // what do we do on scroll?
           console.log("handling scroll`");
+
+
+          if (arg=="up") {
+            window.scrollBy(0, -50);
+          }
           break;
         case "enter":
+
           // what do we do on enter?
           console.log("handling enter");
           break;
