@@ -83,6 +83,7 @@ if (!('webkitSpeechRecognition' in window)) {
 
         case "enter":
       $("#command").focus();
+      $(":focus").val($(":focus").val() + arg); 
 
         //if ($(this).hasClass('field')){ 
 
