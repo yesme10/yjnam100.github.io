@@ -83,7 +83,7 @@ if (!('webkitSpeechRecognition' in window)) {
 
         case "enter":
   
-        if ($(this)[0].hasClass('field')){ 
+        if ($(this).hasClass('field')){ 
 
 
           $(this).val()=($(this).val())+newval;
@@ -94,7 +94,7 @@ if (!('webkitSpeechRecognition' in window)) {
 
           break;
         }
-        
+
         default:
           console.log("sorry, that is not a recognized command");
       }
