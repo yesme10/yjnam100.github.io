@@ -80,10 +80,15 @@ if (!('webkitSpeechRecognition' in window)) {
             window.scrollBy(0, 50);
           }
           break;
-        case "enter":
 
-          var text= $("#command").val();
-          text=text+arg;
+        case "enter":
+        $("#command").click();
+
+
+          var newval= $(arg).text();
+
+          $(":focus").val($(":focus").val() + newval); 
+
           console.log(text);
 
 
