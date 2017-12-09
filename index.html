@@ -16,12 +16,7 @@ if (!('webkitSpeechRecognition' in window)) {
   recognition.onstart = function() {
   }
   
-  function startButton(event) {
-
-  final_transcript = '';
-  recognition.lang = 'en-US';    
-  recognition.start();
-}
+ 
 
   recognition.onresult = function(event) {
   		for (var i = event.resultIndex; i < event.results.length; ++i) {
@@ -100,7 +95,12 @@ $(".recordbutton").click(function() {
   }
 });
 
+ function startButton(event) {
 
+  final_transcript = '';
+  recognition.lang = 'en-US';    
+  recognition.start();
+}
 
 
 }
