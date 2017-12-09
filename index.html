@@ -82,19 +82,17 @@ if (!('webkitSpeechRecognition' in window)) {
           break;
 
         case "enter":
-        $("#command").click();
+  
 
+          var newval= $(arg).val();
+          $("#command")[0].val() + newval; 
 
-          var newval= $(arg).text();
-
-          $(":focus").val($(":focus").val() + newval); 
 
           console.log(newval);
 
-
-
           // what do we do on enter?
           console.log("handling enter");
+
           break;
         default:
           console.log("sorry, that is not a recognized command");
@@ -141,7 +139,7 @@ $(".recordbutton").click(function() {
 </p>
 
 <p>
-  <input type="text" id="command" value="">
+  <input type="text" class="field" id="command" value="">
 </p>
 
 </body>
