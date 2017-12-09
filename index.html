@@ -14,8 +14,6 @@ if (!('webkitSpeechRecognition' in window)) {
   recognition.continuous = false;
 
   recognition.onstart = function() {
-      recognition.result();
-
   }
   
   function startButton(event) {
