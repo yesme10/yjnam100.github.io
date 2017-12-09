@@ -82,19 +82,18 @@ if (!('webkitSpeechRecognition' in window)) {
           break;
 
         case "enter":
-  
+      $("#command").focus();
 
-        if ($(this).hasClass('field')){ 
+        //if ($(this).hasClass('field')){ 
 
 
           $(this).val()=($(this).val())+arg;
           console.log(arg);
 
           // what do we do on enter?
-          console.log("handling enter");
+          console.log("handling enter");//
 
           break;
-        }
 
         default:
           console.log("sorry, that is not a recognized command");
