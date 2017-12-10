@@ -96,8 +96,12 @@ if (!('webkitSpeechRecognition' in window)) {
 
           break;
 
-        default:
-          console.log("sorry, that is not a recognized command");
+        default: 
+          if(verb != "click" && verb != "scroll" && verb != "enter")  {
+            console.log("sorry, that is not a recognized command");
+
+          }
+          
       }
   }
 }
