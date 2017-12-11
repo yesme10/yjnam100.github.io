@@ -85,10 +85,7 @@ if (!('webkitSpeechRecognition' in window)) {
       $("#command").focus();
       $(":focus").val($(":focus").val() + arg); 
 
-        //if ($(this).hasClass('field')){ 
 
-
-         // $(this).val()=($(this).val())+arg;
           console.log(arg);
 
           // what do we do on enter?
@@ -97,7 +94,6 @@ if (!('webkitSpeechRecognition' in window)) {
           break;
 
         default: 
-          if(verb != "click" && verb != "scroll" && verb != "enter")  {
             console.log("sorry, that is not a recognized command");
 
           }
