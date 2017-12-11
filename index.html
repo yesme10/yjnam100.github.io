@@ -99,6 +99,9 @@ if (!('webkitSpeechRecognition' in window)) {
           }
           
       }
+      else {
+        console.log("sorry, that is not a recognized command");
+      }
   }
 }
   recognition.onerror = function(event) {
